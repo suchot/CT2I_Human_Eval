@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Results</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+</head>
+<body>
+
+<h2>Results</h2>
+
+<div class="bar-container">
+    <div class="bar bar1" style="width: {{ image_1_score }}%;">
+        Method 1: {{ image_1_score }}%
+    </div>
+</div>
+
+<div class="bar-container">
+    <div class="bar bar2" style="width: {{ image_2_score }}%;">
+        Method 2: {{ image_2_score }}%
+    </div>
+</div>
+
+<!-- ... rest of the file ... -->
+
+<h2>Individual Vote</h2>
+
+<table>
+    <thead>
+        <tr>
+            <th>Input Image</th>
+            <th>Generated Image 1 Votes</th>
+            <th>Generated Image 2 Votes</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for input_image, votes in image_votes_count.items() %}
+        <tr>
+            <td>{{ input_image }}</td>
+            <td>{{ votes.get('1', 0) }}</td>
+            <td>{{ votes.get('2', 0) }}</td>
+        </tr>
+        {% endfor %}
+    </tbody>
+</table>
+
+<!-- ... rest of the file ... -->
+<div class="button-container">
+    <a href="/">Back to Voting</a>
+</div>
+</body>
+</html>

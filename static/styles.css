@@ -1,0 +1,89 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 30px
+}
+
+h2 {
+    text-align: center;
+}
+
+.bar-container {
+    width: 100%;
+    background-color: #f0f0f0;
+    padding: 10px;
+    margin: 20px 0;
+}
+
+.bar {
+    height: 30px;
+    line-height: 30px;
+    color: white;
+    text-align: center;
+}
+
+.bar1 {
+    background-color: #3498db;
+}
+
+.bar2 {
+    background-color: #e74c3c;
+}
+
+/* ... existing styles ... */
+table {
+    width: 70%;
+    /* Set table width to be more centered */
+    border-collapse: collapse;
+    margin: 20px auto;
+    /* Centers the table on the page */
+    border: 3px solid #555;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+}
+
+th,
+td {
+    border: 2px solid #999;
+    padding: 10px 15px;
+    /* Increase padding for better spacing */
+    text-align: center;
+}
+
+th {
+    background-color: #f7f7f7;
+    font-weight: bold;
+}
+
+tr:nth-child(even) {
+    background-color: #f4f4f4;
+    /* Differentiates between rows for better clarity */
+}
+
+tr:hover {
+    background-color: #e0e0e0;
+}
+
+.button-container {
+    text-align: center;
+    /* To center the button on the page */
+    margin-top: 30px;
+    /* Adds space above the button */
+}
+
+.button-container a {
+    display: inline-block;
+    padding: 10px 20px;
+    /* Adds padding to the button for a better look */
+    background-color: #555;
+    color: #fff;
+    text-decoration: none;
+    border-radius: 5px;
+    /* Rounds the corners of the button slightly */
+    transition: background-color 0.3s;
+    /* Smooth transition effect */
+}
+
+.button-container a:hover {
+    background-color: #333;
+    text-align: center;
+    /* Darkens the button when hovered for interaction feedback */
+}

@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Image Layout</title>
+    <style>
+        .container {
+            font-family: Arial, sans-serif;
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        h1 {
+            text-align: center;
+        }
+
+        .images {
+            display: flex;
+            justify-content: space-between;
+        }
+
+        img {
+            width: 48%;
+            height: auto;
+            border: 1px solid #ccc;
+        }
+
+        p {
+            margin-top: 20px;
+        }
+
+        .factors {
+            margin-top: 30px;
+        }
+
+        .choices {
+            margin-top: 20px;
+            text-align: center;
+        }
+
+        .submit {
+            margin-top: 20px;
+            text-align: center;
+        }
+
+        button {
+            padding: 10px 20px;
+            font-size: 16px;
+        }
+        .btn {
+            display: inline-block;
+            padding: 10px 20px;
+            background-color: #4CAF50; /* Change to desired color */
+            color: white;
+            text-align: center;
+            text-decoration: none;
+            border: none;
+            cursor: pointer;
+            border-radius: 4px;
+        }
+        .btn:hover {
+            background-color: #45a049; /* Slightly darker shade for hover effect */
+
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="container">
+        <h1>Read the text below and use the sliders below indicate your choice.</h1>
+
+        <h2>Condition Input:</h2>
+        <img src="{{url_for('static', filename=input_image_url) }}" alt="Input Image">
+
+        <div>
+            <h2><blue><p>Condition Text: {{ text }}</p></blue></h2>
+        </div>
+        <div class="images">
+            <div>
+                <h3>Method 1 generated image:</h3>
+                <img src="{{url_for('static', filename=generated_image_1_url) }}" alt="Generated Image 1">
+            </div>
+            <div>
+                <h3>Method 2 generated image:</h3>
+                <img src="{{url_for('static', filename=generated_image_2_url) }}" alt="Generated Image 2">
+            </div>
+        </div>
+        <form action="/" method="post">
+            <input type="hidden" name="selected_input" value="{{ selected_input }}">
+            <div class="choices">
+                <input type="radio" name="image_choice" value="1" id="image1">
+                <label for="image1">Method 1</label>
+                <input type="radio" name="image_choice" value="2" id="image2">
+                <label for="image2">Method 2</label>
+            </div>
+
+            <div class="submit">
+                <button type="submit">Submit Choice</button>
+            </div>
+        
+        <a href="/results" class="btn">View Results</a>
+
+        </form>
+        <h2>Which image (1 or 2) is a better result given?</h2>
+
+        <div class="factors">
+            <p>Please consider the following factors when you choose the better result.</p>
+            <p><strong>By "Control"</strong> evaluate the effect of condition control</p>
+            <p><strong>By "generation quality"</strong>, identify how well it matches with the input texts (Please
+                search the keywords for better understanding). Visually appealing is a minor factor.</p>
+        </div>
+    </div>
+
+</body>
+
+</html>
