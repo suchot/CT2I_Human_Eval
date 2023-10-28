@@ -1,5 +1,5 @@
 # The Eval page for Condition T2I.
-# most code generate by GPT4
+# most code generate by chatGPT4
 ├── Human_Eval/ 
 │   ├── ... (other files and directories)
 │
