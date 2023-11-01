@@ -34,19 +34,23 @@ def index():
         image_1_score = image_2_score = 0
 
     # Assuming the filename is 'image.jpg' and folders are 'input_images' and 'generated_images'
-    selected_input = random.choice(['887_1.png','887_0.png','810_3.png'])
     path = 'input_images'
     selected_input = get_random_input_image(path)
+    print(selected_input)
+    prompt_file = selected_input.split(".")[0] + ".txt"
+    prompt_path = os.path.join('static', 'input_prompt', prompt_file)
+    file = open(prompt_path, 'r')
+    prompt_input = file.readlines()
     input_image_url = f"input_images/{selected_input}"
     generated_image_1_url = f"generated_images_1/{selected_input}"
     generated_image_2_url = f"generated_images_2/{selected_input}"
-    # print(input_image_url, generated_image_1_url, generated_image_2_url)
+    generated_prompt_url = f"input_prompt/{prompt_input}"
     return render_template('index.html', 
                             selected_input=selected_input,
                             input_image_url=input_image_url, 
                             generated_image_1_url=generated_image_1_url,
                             generated_image_2_url=generated_image_2_url,
-                            text = "test image",
+                            text =prompt_input,
                             image_1_score=image_1_score,
                             image_2_score=image_2_score)
 
@@ -81,4 +85,4 @@ def results():
                            image_votes_count=image_votes_count)
 
 if __name__ == '__main__':
-    app.run(debug=True)
+    app.run(host="0.0.0.0", debug=True)
